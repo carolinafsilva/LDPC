@@ -11,7 +11,7 @@ from numpy.random import shuffle
 
 def generate_code(k: int, m: int, v: int):
   '''
-  Generates a list P with m*k/v lists of size v
+  Generates a list P with m(k/v) lists of size v
   '''
   P = []
   I = [i for i in range(k)]
@@ -26,7 +26,7 @@ def generate_code(k: int, m: int, v: int):
 
 def encode(_: int, P: list, w: BitArray):
   '''
-  Encondes a message w of size k with a block code define by a list P
+  Encondes a message w of size k with a block code defined by a list P
   '''
   x = BitArray(w)
   for p in P:

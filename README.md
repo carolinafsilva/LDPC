@@ -3,7 +3,7 @@
 ### up202004100
 
 ## Dependências
-De modo a correr qualquer um dos scripts é necessário instar a biblioteca *bitstring* e *numpy*.
+De modo a utilizar o módulo é necessário instalar a biblioteca *bitstring* e *numpy*.
 
 ## Como utilizar o módulo
 
@@ -24,7 +24,10 @@ A função retorna uma lista de tamanho *m(k/v)* com listas de tamanho *v*.
 
 Exemplo:
 ```py
-P = generate_code(8,2,2)
+k = 9
+m = 2
+v = 2
+P = generate_code(k, m, v)
 ```
 
 ### Como codificar uma mensagem?
