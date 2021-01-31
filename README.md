@@ -1,28 +1,26 @@
-# Trabalho 2 - Teoria da Informação
-## Ana Carolina Silva
-### up202004100
+# LDPC
 
-## Dependências
-De modo a utilizar o módulo é necessário instalar a biblioteca *bitstring* e *numpy*.
+## Dependencies
+In order to use the module you need to install the following dependencies: *bitstring* and *numpy*.
 
-## Como utilizar o módulo
+## How to use the module
 
-No início do seu código python faça o *import* das funções que pretende utilizar da seguinte forma
+In the begining of your python code import the functions you intend to use, as follow
 ```py
 from ldpc.py import encode, decode
 ```
 
-### Como gerar um código de bloco?
-Comece por dar import da função *generate_code*.
+### How to generate a block code?
+Start by importing the *generate_code* function.
 
-Esta função recebe 3 inputs
-- *k*: tamanho da mensagem a codificar
-- *m*: número de vezes que cada bit da mensagem será utilizado
-- *v*: número de bits necessários para gerar um bit de paridade
+This function receives 3 inputs
+- *k*: size of the message to code
+- *m*: number of times each message bit is gonna be used
+- *v*: number of bits needed to generate a parity bit
 
-A função retorna uma lista de tamanho *m(k/v)* com listas de tamanho *v*.
+The function returns a list of size *m(k/v)* with lists of size *v*
 
-Exemplo:
+Example:
 ```py
 k = 9
 m = 2
@@ -30,17 +28,17 @@ v = 2
 P = generate_code(k, m, v)
 ```
 
-### Como codificar uma mensagem?
-Comece por dar import da função *encode*.
+### How to code a message?
+Start by importing the *encode* function.
 
-A função necessita de 3 argumentos
-- *k* : tamanho da mensagem a codificar
-- *P* : código de blocos gerado (ver função *generate_code*)
-- *w* : mensagem a codificar
+The function receives 3 inputs
+- *k* : size of the message to code
+- *P* : block code (see *generate_code* function)
+- *w* : message to code
 
-A função retorna um *BitArray* com a mensagem *w*, à qual são concatenados os bits de paridade.
+The function returns a *BitArray* with the message *w*, with the parity bits concatenated.
 
-Exemplo:
+Example:
 ```py
 k = 32
 m = 8
@@ -50,18 +48,18 @@ P = generate_code(k, m, v)
 x = encode(k, P, w)
 ```
 
-### Como descodificar um código?
-Comece por dar import da função *decode*.
+### How to decode a coded message?
+Start by importing the *decode* function
 
-A função necessita de 4 argumentos
-- *k* : tamanho da mensagem a codificar
-- *P* : código de blocos gerado (ver função *generate_code*)
-- *y* : código recebido do canal de rasura
-- *q* : erros detetados no código *y*
+The function needs 4 arguments:
+- *k* : size of the message to code
+- *P* : block code (see *generate_code* function)
+- *y* : code received from the Binary Eraser Channel
+- *q* : errors detected in *y*
 
-A função retorna um *BitArray* com a mensagem *w* descodificada ou *None* caso não seja possível a sua descodificação.
+The function returns a *BitArray* with the message *w* decoded or *None* if it's not possible to decode.
 
-Exemplo:
+Example:
 ```py
 k = 8
 m = 2
